@@ -2,7 +2,7 @@ import { expect } from 'chai';
 
 import { convertToMdTable } from '../src/convert';
 
-describe('arrToMarkdown', () => {
+describe('convertToMdTable', () => {
   it('converts 2d-array to markdown table', () => {
     const data = [
       ['aaa', 'bbb', 'ccc'],
@@ -28,6 +28,18 @@ describe('arrToMarkdown', () => {
 |aaa|bbb|ccc|\n\
 |xxx|yyy|zzz|';
 
+    expect(convertToMdTable(data, true)).to.equal(expected);
+  });
+
+  it('handles line breaks', () => {
+    const data = [
+      ['1\n2', '3\n4'],
+      ['foo\nbar', 'yo\nho'],
+    ];
+
+    const expected = '|1 2|3 4|\n\
+|---|---|\n\
+|foo bar|yo ho|';
     expect(convertToMdTable(data, true)).to.equal(expected);
   });
 

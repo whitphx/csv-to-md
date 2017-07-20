@@ -1,4 +1,9 @@
-export function convertToMdTable(data, useHeader=false) {
+function validateCell(value, lineBreak=' ') {
+  return value.replace(/\n/g, lineBreak);
+}
+
+export function convertToMdTable(data, useHeader = false) {
+  // Validate input
   if (data.length === 0) return '';
 
   // Get header and body
@@ -6,12 +11,16 @@ export function convertToMdTable(data, useHeader=false) {
   const body = useHeader ? data.slice(1) : data;
 
   // Create header of markdown table
-  const mdHeader = '|' + header.join('|') + '|';
+  const nHeaderCols = header.length;
+  let mdHeader = '|';
+  for (let iCol = 0; iCol < nHeaderCols; ++iCol) {
+    const cell = header[iCol] || '';
+    mdHeader += validateCell(cell) + '|';
+  }
 
   // Create divider of markdown table
-  const nCols = header.length;
   let mdDivider = '|';
-  for (let iCol = 0; iCol < nCols; ++iCol) {
+  for (let iCol = 0; iCol < nHeaderCols; ++iCol) {
     mdDivider += '---|';
   }
 
@@ -21,7 +30,13 @@ export function convertToMdTable(data, useHeader=false) {
   const nRows = body.length;
   for (let iRow = 0; iRow < nRows; ++iRow) {
     const row = body[iRow];
-    mdRows[iRow] = '|' + row.join('|') + '|';
+    const nCols = row.length;
+
+    mdRows[iRow] = '|';
+    for (let iCol = 0; iCol < nCols; ++iCol) {
+      const cell = row[iCol];
+      mdRows[iRow] += validateCell(cell) + '|'
+    }
   }
 
   const mdBody = mdRows.join('\n');
