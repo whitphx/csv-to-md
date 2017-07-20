@@ -7,7 +7,7 @@ module.exports = {
   output: {
     filename: 'app.js',
     path: path.resolve('./public'),
-    publicPath: '/',
+    publicPath: '/csv-to-md',
   },
   module: {
     rules: [
