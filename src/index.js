@@ -8,6 +8,8 @@ const convertBtn = document.getElementById('convert');
 
 const opt = {
   trim: true,
+  quote: '"',
+  escape: '\\',
 };
 
 convertBtn.addEventListener('click', function() {
