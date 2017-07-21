@@ -14,14 +14,19 @@ export function convertToMdTable(data, useHeader = false) {
   const nHeaderCols = header.length;
   let mdHeader = '|';
   for (let iCol = 0; iCol < nHeaderCols; ++iCol) {
-    const cell = header[iCol] || '';
-    mdHeader += validateCell(cell) + '|';
+    const cell = header[iCol];
+
+    if (cell) {
+      mdHeader += ' ' + validateCell(cell) + ' |';
+    } else {
+      mdHeader += ' |';
+    }
   }
 
   // Create divider of markdown table
   let mdDivider = '|';
   for (let iCol = 0; iCol < nHeaderCols; ++iCol) {
-    mdDivider += '---|';
+    mdDivider += ' --- |';
   }
 
   // Create body of markdown table
@@ -35,7 +40,7 @@ export function convertToMdTable(data, useHeader = false) {
     mdRows[iRow] = '|';
     for (let iCol = 0; iCol < nCols; ++iCol) {
       const cell = row[iCol];
-      mdRows[iRow] += validateCell(cell) + '|'
+      mdRows[iRow] += ' ' + validateCell(cell) + ' |'
     }
   }
 

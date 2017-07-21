@@ -9,10 +9,10 @@ describe('convertToMdTable', () => {
       ['xxx', 'yyy', 'zzz'],
     ];
 
-    const expected = '||||\n\
-|---|---|---|\n\
-|aaa|bbb|ccc|\n\
-|xxx|yyy|zzz|';
+    const expected = '| | | |\n\
+| --- | --- | --- |\n\
+| aaa | bbb | ccc |\n\
+| xxx | yyy | zzz |';
     expect(convertToMdTable(data)).to.equal(expected);
   });
 
@@ -23,10 +23,10 @@ describe('convertToMdTable', () => {
       ['xxx', 'yyy', 'zzz'],
     ];
 
-    const expected = '|111|222|333|\n\
-|---|---|---|\n\
-|aaa|bbb|ccc|\n\
-|xxx|yyy|zzz|';
+    const expected = '| 111 | 222 | 333 |\n\
+| --- | --- | --- |\n\
+| aaa | bbb | ccc |\n\
+| xxx | yyy | zzz |';
 
     expect(convertToMdTable(data, true)).to.equal(expected);
   });
@@ -37,9 +37,9 @@ describe('convertToMdTable', () => {
       ['foo\nbar', 'yo\nho'],
     ];
 
-    const expected = '|1 2|3 4|\n\
-|---|---|\n\
-|foo bar|yo ho|';
+    const expected = '| 1 2 | 3 4 |\n\
+| --- | --- |\n\
+| foo bar | yo ho |';
     expect(convertToMdTable(data, true)).to.equal(expected);
   });
 
