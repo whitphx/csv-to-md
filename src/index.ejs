@@ -9,16 +9,35 @@
   </head>
   <body>
     <h1>CSV to Markdown</h1>
-    <textarea id="csv" name="csv" rows="8" cols="80"></textarea>
-    <textarea id="markdown" name="markdown" rows="8" cols="80"></textarea>
-    <label>
-      <input id="header" type="checkbox" name="header" value="header" />
-      Use the first line as a header
-    </label>
-    <button id="convert">Convert</button>
+    <div>
+      <h3>CSV</h3>
+      <textarea id="csv" name="csv" rows="8" cols="80"></textarea>
+    </div>
+    <div>
+      <p>
+        <label>
+          <input id="header" type="checkbox" name="header" value="header" />
+          Use the first line as a header
+        </label>
+      </p>
+      <p>
+        <button id="convert">Convert!</button>
+      </p>
+    </div>
+    <div>
+      <h3>Markdown</h3>
+      <textarea id="markdown" name="markdown" rows="8" cols="80"></textarea>
+    </div>
 
-    <p>
-      This app uses <a href="https://github.com/wdavidw/node-csv-parse">node-csv-parse</a>.
-    </p>
+    <hr>
+
+    <footer>
+      <p>
+        This app uses <a href="https://github.com/wdavidw/node-csv-parse">node-csv-parse</a>.
+      </p>
+      <p>
+        Source code: <a href="https://github.com/tuttieee/csv-to-md">https://github.com/tuttieee/csv-to-md</a>
+      </p>
+    </footer>
   </body>
 </html>
