@@ -23,6 +23,6 @@
     "webpack-dev-server": "^2.5.1"
   },
   "dependencies": {
-    "csv-parse": "^1.2.0"
+    "csv-parse": "^4.6.5"
   }
 }
