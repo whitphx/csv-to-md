@@ -2,4 +2,4 @@
 
 CSV to Markdown converter
 
-https://tuttieee.github.io/csv-to-md/
+https://whitphx.github.io/csv-to-md/
